@@ -110,10 +110,12 @@ i = 0;
 const sortByDonation = a => a.map(d => d < 0 ? o : o[i++], o = a.filter(d => d >= 0).sort((a, b) => a - b));
 
 console.log(sortByDonation(a));
+
 // Problem 2
 // sort runners by last name from z-a then return last first name.
 const lastNameSort = runners.map(run => `${run.last_name} ${run.first_name}`).sort().reverse();
 console.log(lastNameSort);
+
 // Problem 3
 //Get a count of how many of each shirt size you need
 let shirtSizeXSmall = [];
