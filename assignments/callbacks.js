@@ -39,40 +39,45 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 
 function getLength(arr, cb) {
-  return cb([arr.length]);
+  console.log(cb(arr));
 }
-getLength(items, len => {
-  console.log(len);
-});
 
+const getArrayLength = arr => {
+  return arr.length;
+}
+getLength(items, getArrayLength);
+//
 function last(arr, cb) {
-  return cb([arr[arr.length - 1]]); // last passes the last item of the array into the callback.
+  console.log(cb(arr));
 }
-last(items, las => {
-  console.log(las);
-});
 
-function sumNums(x, y, cb) {
-  return cb(x, y); // sumNums adds two numbers (x, y) and passes the result to the callback.
+const getLastArrayItem = arr => {
+  return arr[arr.length - 1];
 }
-const add = (x, y) => {
+last(items, getLastArrayItem);
+//
+function sumNums(x, y, cb) {
+  console.log(cb(x, y));
+}
+
+const addNums = (x, y) => {
   return x + y;
 }
-console.log(sumNums(3, 5, add));
-
+sumNums(2, 6, addNums);
+//
 function multiplyNums(x, y, cb) {
-  return cb(x, y); // multiplyNums multiplies two numbers and passes the result to the callback.
+  console.log(cb(x, y));
 }
+
 const multiply = (x, y) => {
   return x * y;
 }
-console.log(multiplyNums(3, 5, multiply));
-
-// contains checks if an item is present inside of the given array/list.
-// Pass true to the callback if it is, otherwise pass false.
+multiplyNums(7, 8, multiply);
+//
 function contains(item, list, cb) {
   return cb(item, list);
 }
+
 const contain = (item, list) => {
   for (i = 0; i < list.length; i++) {
     if (list[i] === item) {
@@ -83,12 +88,17 @@ const contain = (item, list) => {
 }
 console.log(contains('Notebook', items, contain));
 console.log(contains("Baseball", items, contain));
+console.log(contains("Gum", items, contain));
 
 
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
+  console.log(cb(array));
 }
+
+const removal = dupArr => Array.from(new Set([...dupArr]));
+
+const duplicateArray = [1, 2, 4, 4, 5, 6, 7, 7, 8, 8, 8, 8, 9, 2, 1];
+
+removeDuplicates(duplicateArray, removal);

@@ -4,6 +4,17 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+const firstName = (firstName) => {
+  return function(lastName){
+    return function(greet){
+      return function(farewell){
+        return greet + firstName + " " + lastName + "." + farewell;
+      }
+    }
+  }
+}
+
+console.log(firstName("Kevin")("Manning")("Hello, my name is ")(" It was nice to meet you."))
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
